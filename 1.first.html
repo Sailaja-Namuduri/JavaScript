@@ -1,0 +1,25 @@
+<p>Player1:Chris</p>
+<style>
+    p{
+        font-family:'sans-serif';
+        letter-spacing:'1px';
+        text-transform: uppercase;
+        text-align: center;
+        border: 1px solid rgba(0,0,200,0.6);
+        background: rgba(0,0,200,0.3);
+        color: rgba(0,0,200,0.6);
+        box-shadow: 1px 1px 2px rgb(0 0 200/40%);
+        border-radius: 10px;
+        padding: 3px 10px;
+        display: inline-block;
+        cursor: pointer;
+    }
+</style>
+<script>
+    const para=document.querySelector('p');
+    para.addEventListener('click',updateName);
+    function updateName(){
+        var name=prompt("Enter new name");
+        para.textContent=`Player1:${name}`;
+    }
+</script>
