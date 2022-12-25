@@ -23,8 +23,22 @@
       /*assigning obj1 to obj2 prototype using Object.assign(obj2.__proto__,obj1),
         then only you can access name property and print name in greet()*/
       
-        Object.assign(obj2.__proto__,obj1);
+        /*Object.assign(obj2.__proto__,obj1);
+
+        console.log(obj2.greet());*/
+        obj1["eyes"]="black";
+        obj2["eyesColor"]=function(){
+            console.log(`My eye color is ${this.eyes}`);
+        }
+        //obj1 can access greet() and can substitute name value in console
+        //but obj2 can't access name , becoz obj2 protype didnt mapped to obj1
+        Object.assign(obj1.__proto__,obj2);
 
         console.log(obj2.greet());
+        console.log(obj1);
+        console.log(obj2);
+        console.log(obj1.eyes)
+        console.log(obj2.eyesColor());
+        console.log(obj1.eyesColor());
     </script>
 </html>
