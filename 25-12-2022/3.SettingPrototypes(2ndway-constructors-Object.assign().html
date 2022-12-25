@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+        const personPrototype={
+            greet(){
+                console.log(`Hi, Im ${this.name}`);
+            },
+        };
+        function Person(name){
+            this.name=name;
+        }
+        Object.assign(Person.prototype,personPrototype);
+        const person1=new Person("Sailaja");
+        console.log(person1);
+        person1.greet();
+        person1["age"]=32;
+        console.log("after adding age 32 to person1 obj",person1);
+        console.log("name property in person1",Object.hasOwn(person1,"name"));//Expected:true--------Actual:false
+        console.log("greet method in person1",Object.hasOwn(person1,"greet"));//Expected: false
+        console.log("age property in person1",Object.hasOwn(person1,"age"));//true
+        const person2=new Person("Vijji");
+        console.log(person2)
+    </script>
+</html>
