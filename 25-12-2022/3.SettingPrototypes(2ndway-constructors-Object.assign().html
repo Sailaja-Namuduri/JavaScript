@@ -20,7 +20,8 @@
         function Person(name){
             this.name=name;
         }
-        Object.assign(Person.prototype,personPrototype);
+        Object.assign(Person.prototype,personPrototype);//not valid:: Object.assign(Person.__proto__,personPrototype);
+        //because constructor functions only support .protoype not __proto__
         const person1=new Person("Sailaja");
         console.log(person1);
         person1.greet();

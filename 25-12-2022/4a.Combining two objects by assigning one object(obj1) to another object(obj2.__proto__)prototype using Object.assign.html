@@ -31,7 +31,7 @@
             console.log(`My eye color is ${this.eyes}`);
         }
         //assigned obj1 to obj2 prototype object
-        Object.assign(obj2.__proto__,obj1);
+        Object.assign(obj2.__proto__,obj1);//valid :because normal objects supports __proto__
 
         console.log(obj2.greet());
         console.log(obj1);
