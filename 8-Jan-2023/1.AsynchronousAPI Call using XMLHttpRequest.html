@@ -1,0 +1,31 @@
+<button id="xhr">Click to Start request</button>
+<button id="reload">Reload</button>
+<pre readonly class="event-log"></pre>
+<pre readonly class="for-loop"></pre>
+<script>
+    const log=document.querySelector('.event-log');
+    const for_Loop=document.querySelector('.for-loop');
+    for_Loop.textContent='';
+    document.querySelector('#xhr').addEventListener('click',()=>{
+        log.textContent='';
+        
+        const xhr=new XMLHttpRequest();
+        xhr.addEventListener('loadend',()=>{
+            setTimeout(()=>{
+                log.textContent=`${log.textContent} Finished with status: ${xhr.status} ${xhr.responseText.Games}`;
+
+            },2000)
+        })
+            
+        xhr.open('GET','https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json');
+        xhr.send();
+        log.textContent=`${log.textContent} Started  XHR request \n`;
+
+        for(i=0;i<=10;i++){
+            for_Loop.textContent+=i+' ';
+        }
+        document.querySelector('#reload').addEventListener('click',()=>{
+            document.location.reload();
+        })
+    })
+</script>

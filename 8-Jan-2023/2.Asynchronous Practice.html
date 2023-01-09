@@ -1,0 +1,22 @@
+<button id="start">CLick to start request</button>
+<button id="reload">Reload</button>
+<pre readonly class="event-log"></pre>
+
+<script>
+    const log=document.querySelector('.event-log');
+    log.textContent='';
+    document.querySelector('#start').addEventListener('click',()=>{
+        const xhr=new XMLHttpRequest();
+        console.log(xhr);
+        xhr.addEventListener('loadend',()=>{
+            log.textContent=`${log.textContent} Finished Request status : ${xhr.status}\n`;
+        });
+        xhr.onloadend=()=>{
+            log.textContent=`${log.textContent} Finished REquest onLoadend status:${xhr.status}`
+        }     
+        xhr.open('GET','https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json');
+        xhr.send();
+        log.textContent=`${log.textContent} Started Request \n`;
+    });
+   
+</script>
