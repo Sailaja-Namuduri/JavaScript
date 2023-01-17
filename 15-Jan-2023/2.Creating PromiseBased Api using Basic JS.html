@@ -1,0 +1,23 @@
+<button id="alarm">Set Alarm</button>
+<div id="output"></div>
+
+<script>
+    var alarm=document.querySelector('#alarm');
+    var output=document.querySelector('#output');
+
+    alarm.addEventListener('click',funSetAlarm);
+
+    function funSetAlarm(){
+        setTimeout(()=>{
+            output.style.backgroundColor='pink';
+            output.style.padding='10px';
+            output.style.margin='10px'
+            output.textContent='Alarm!!'
+            let confi=confirm('Reapeat alarm after 10minutes?');//true or false
+            if(confi===true){
+                funSetAlarm();//delay 2000msec=2 secs
+            }
+        },2000)
+    }
+    
+</script>
