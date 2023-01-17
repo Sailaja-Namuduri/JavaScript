@@ -1,0 +1,37 @@
+<span>Name : </span><input id="name"/><br/>
+<span>Delay : </span><input id="delay"/><br/>
+<button id="alarm">Set Alarm</button>
+<pre readonly id="output"></pre>
+
+<script>
+    let name=document.querySelector('#name');
+    let delay=document.querySelector('#delay');
+    let alarmId=document.querySelector('#alarm');
+    let output=document.querySelector('#output');
+
+    alarmId.addEventListener('click',async()=>{
+        try{
+            const responseData=await alarmClicked(name.value,delay.value);//Promise converted to response data by await
+            output.textContent=responseData;
+        }catch(error){
+            output.textContent=error;
+        }
+        
+    })
+
+    function alarm(name,delay){
+        return new Promise((resolve,reject)=>{
+            if(delay<0){
+                throw new Error(`Delay must not be negative`);
+            }
+            setTimeout(()=>{
+                resolve(`WakeUP!! ${name}`)
+            },delay*1000)
+        })
+    }
+    async function alarmClicked(name,delay){
+        const myData=await alarm(name,delay);//Reponse Data
+        return myData;//returns Promise
+    }
+
+</script>

@@ -1,0 +1,14 @@
+<button id="alarm">Set Alarm</button>
+<div id="output"></div>
+
+<script>
+    var alarm=document.querySelector('#alarm');
+    var output=document.querySelector('#output');
+
+    alarm.addEventListener('click',()=>{
+        setTimeout(()=>{
+            output.style.backgroundColor='pink';
+            output.textContent='Alarm!!'
+        },2000)
+    })
+</script>
