@@ -1,0 +1,23 @@
+<div id="container"></div>
+<div id="result"></div>
+<script>
+    let container=document.querySelector('#container');
+    let result=document.querySelector('#result');
+    container.textContent="Hello World!!";
+    let arr=[
+        {id:0,name:1,age:2},
+        {id:0,name:1,age:2},
+        {id:0,name:1,age:2}
+    ];
+    let brr=[];
+    for(const obj of arr){
+        console.log(obj);
+        //1.convert object to Json stringify
+        //console.log(JSON.stringify(obj));
+        if(obj.hasOwnProperty("name")){
+            console.log(obj.name);
+        }
+        brr+=obj
+    }
+    result.textContent=brr;
+</script>

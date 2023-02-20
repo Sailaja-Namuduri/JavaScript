@@ -1,0 +1,39 @@
+<div id="container"></div>
+<div id="arr-count"></div>
+<div id="brr-count"></div>
+<script>
+    let container=document.querySelector('#container');
+    let arrCount=document.querySelector('#arr-count');
+    let brrCount=document.querySelector('#brr-count');
+    let arr_values=[
+        {0:0,1:1,2:2},
+        {0:0,1:1,2:2},
+        {0:0,1:1,2:2}
+    ];
+    let brr_values=[
+        {3:3,4:4,5:5},
+        {3:3,4:4,5:5},
+        {3:3,4:4,5:5}
+    ];
+    let arr_count=0;
+    let brr_count=0;
+    //array values reading using "forEach"
+    arr_values.forEach((item,index,array) => {
+        console.log('array values are :'+item);
+        //object values reading using "for....of"
+        for(const [key,value] of Object.entries(item)){
+            console.log(`${key}:${value}`);
+            arr_count++;
+        }
+    });
+    brr_values.forEach((item,index,array) => {
+        console.log('array values are :'+item);
+        //object values reading using "for....of"
+        for(const [key,value] of Object.entries(item)){
+            console.log(`${key}:${value}`);
+            brr_count++;
+        }
+    });
+    arrCount.textContent=arr_count;
+    brrCount.textContent=brr_count;
+</script>
